@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        
+        li{
+            
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+        
+    </style>
+  </head>
+  <body> 
+    <h1>Jokalaria</h1> 
+     
+    <form action="/api/v1/players/ID" method="post">
+        <input type="text" name="id" placeholder="Id">
+        <input type="submit" value="Jokalaria ikusi">
+    </form>
+    <img src="/images/player/<%= image %>.png" alt="Id aukeratzean jokalariaren argazkia agertuko da" width="200" height="200">
+    <ul>
+            <% player.forEach( element => { %>
+                <li>Identifikadorea: <%= element.id %></li>
+                <li>Izena: <%= element.name %></li>
+                <li>Urtebetetzea: <%= element.birthdate %></li>
+                <li>Nongoa da: <%= element.nationality %></li>
+                <li>Taldearen identifikadorea: <%= element.teamId %></li>
+                <li>Posizioa: <%= element.position %></li>
+                <li>Zenbakia: <%= element.number %></li>
+                <li>Liga identifikadorea: <%= element.leagueId %></li>
+                <% }) %>
+        
+    </ul>
+    
+    <a href="/main" class="btn btn-primary">Itzuli</a>
+    
+    
+  </body>
+</html>

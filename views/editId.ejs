@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Sartu editatzeko jokalariaren identifikazioa:</h1>
+    <form action="/api/v1/players/edit/id" method="post">
+      <input type="text" name="id" id="id" placeholder="Enter ID">
+      <input type="submit" value="Editatu">
+      
+    </form>
+    <ul>
+      <% if(errors) { %>
+      <% errors.forEach( element => { %>
+        <li><%= element.msg %></li>
+      <% }) %>
+      <% } %>
+    </ul>
+
+    <a href="/main" class="btn btn-primary">Itzuli</a>
+  </body>
+</html>

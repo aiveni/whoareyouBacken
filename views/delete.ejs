@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/delete.css' />
+  </head>
+  <body>
+    <h1>Aukeratu ezabatu nahi duzu jokalariaren identifikazioa</h1><br>
+    <form action="/api/v1/players/remove/ID" method="post">
+        <input type="text" name="id" placeholder="Id"><br>
+        <input type="submit" value="Jokalaria ezabatu">
+    </form>
+    <ul>
+      <% if(errors) { %>
+      
+        <li><%= errors %></li>
+      
+      <% } %>
+  </body>
+  <br>
+  <br>
+  <a href="/main" class="btn btn-primary">Itzuli</a>
+</html>

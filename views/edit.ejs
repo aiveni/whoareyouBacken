@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>     
+        window.onload = function() {
+            button = document.getElementById('button')
+            item = document.getElementById('item')
+            nameJok = document.getElementById('nameJok')
+            birthdate = document.getElementById('birthdate')
+            nationality = document.getElementById('nationality')
+            teamId = document.getElementById('teamId')
+            position = document.getElementById('position')
+            number = document.getElementById('number')
+            leagueId = document.getElementById('leagueId')
+
+            
+            //window.location.replace('/api/v1/players/edit')
+            button.onclick = function() {
+                fetch('/api/v1/players/edit', {method: 'PUT', headers : {'Content-Type' : 'application/json'}, 
+                body: 
+                JSON.stringify({id:item.value, name: nameJok.value, birthdate: birthdate.value, nationality: nationality.value, teamId: teamId.value, position: position.value, number: number.value, leagueId: leagueId.value                }) })
+                .then (response=> {
+                     response.json()
+                }).then(data => {
+                    console.log(data)
+                    alert('Jokalaria editatu da')
+                })
+                
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="main">
+
+
+    <style>
+    li {
+        color: red;
+    }
+    h1 {
+        text-align: center;
+    }
+    form {
+        width: 30%;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid rgb(224, 152, 152);
+        border-radius: 10px;
+    }
+    input {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    label {
+        display: inline-block;
+        width: 50%;
+        text-align: left;
+    }  
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
+
+ 
+    <% if (title){ %>
+        <h1><%= title %></h1>
+    <% } %>
+    <br><br>
+    <form action="/players/edit">
+        <img src="/images/player/<%=id%>.png" alt="player image" width="200" height="200"><br>
+            <label for="id">Id</label>
+            <input type="number" id="item" name="item" value= "<%=id  %>" ><br>
+            <label for="name">Name</label>
+            <input type="text" id="nameJok" name="name" value= "<%=name  %>" ><br>
+            <label for="birthdate">Birthdate</label>
+            <input type="text" id="birthdate" name="birthdate" value= "<%=birthdate  %>" ><br>
+            <label for="nationality">nationality</label>
+            <input type="text" id="nationality" name="nationality" value= "<%=nationality  %>" ><br>
+            <label for="teamId">teamId</label>
+            <input type="number" id="teamId" name="teamId" value= "<%=teamId  %>" ><br>
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" value= "<%=position %>" ><br>
+            <label for="number">Number</label>
+            <input type="number" id="number" name="number" value= "<%=number  %>" ><br>
+            <label for="leagueId">leagueId</label>
+            <input type="number" id="leagueId" name="leagueId" value= "<%=leagueId  %>" ><br><br>
+            <ul>
+              
+            <% if (errors){ %>
+                <% errors.forEach(function(error){ %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            <% } %>
+            </ul>
+            <input type="button" class="form-submit" value="Edit" id="button" >
+            <a href="/api/v1/players/edit">Itzuli</a>
+
+    </form>
+
+    </div>
+</body>
+</html>

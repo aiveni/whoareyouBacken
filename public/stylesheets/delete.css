@@ -1,0 +1,25 @@
+
+        
+        li{
+            
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+        input[type=text] {
+            width: 10%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+        }
+        form{
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+        }
+    

@@ -1,0 +1,72 @@
+<html>
+<head>
+    <link rel="stylesheet" href="app.css">
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.input-field input {
+    padding: 0.8rem;
+}
+
+form .input-field:first-child {
+    margin-bottom: 1.5rem;
+}
+
+form input[type="submit"] {
+    background: linear-gradient(to left, #4776E6, #8e54e9);
+    color: white;
+    border-radius: 4px;
+    margin-top: 2rem;
+    padding: 0.4rem;
+}
+li{
+    color: red;
+}
+
+    </style>
+</head>
+<body>
+<form action="/register" method="post">
+    <h2>Register</h2>
+    <div class="input-field">
+        <input type="text" name="name" id="name" placeholder="Enter name">
+    </div>
+    <div class="input-field">
+        <input type="text" name="surname" id="surname" placeholder="Enter surname">
+    </div>
+    <div class="input-field">
+        <input type="text" name="username" id="username" placeholder="Enter Username">
+    </div>
+    <div class="input-field">
+        <input type="password" name="password" id="password" placeholder="Enter Password">
+    </div>
+    <div class="input-field">
+        <input type="text" name="email" id="email" placeholder="Enter email">
+    </div>
+    
+    <ul>
+    <% if (errors){ %>
+        <% errors.forEach(function(error){ %>
+            <li><%= error.msg %></li>
+        <% }) %>
+    <% } %>
+    </ul>
+    <input type="submit" value="Register">
+    <a href="/login">Login</a>
+</form>
+</body>
+</html>

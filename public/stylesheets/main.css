@@ -1,0 +1,27 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+p {
+    margin: 0;
+    padding: 20px;
+  
+    font-size: 20px;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(250, 0, 0);
+}

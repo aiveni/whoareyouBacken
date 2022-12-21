@@ -1,0 +1,51 @@
+<head>
+    <link rel="stylesheet" href="/stylesheets/add.css">
+    <script>
+    window.onload= function (){
+       mezua= document.getElementById("mezua")
+       botoia= document.getElementById("botoia")
+       botoia.addEventListener ("click", function(){
+          alert("Jokalaria gehitu da")
+       })
+    }
+  
+    
+    </script>
+</head>
+<div id="main">
+
+    <h1>Add a new player</h1>
+    <br><br>
+    <form action="/players/add" method="post" enctype="multipart/form-data">
+            <label for="id">Id</label>
+            <input type="number" id="item" name="item" ><br>
+            <label for="name">Name</label>
+            <input type="text" id="Name" name="Name"><br>
+            <label for="birthdate">Birthdate</label>
+            <input type="text" id="Birthdate" name="Birthdate" ><br>
+            <label for="nationality">nationality</label>
+            <input type="text" id="nationality" name="nationality"><br>
+            <label for="teamId">teamId</label>
+            <input type="number" id="teamId" name="teamId" ><br>
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" ><br>
+            <label for="Number">Number</label>
+            <input type="number" id="number" name="Number" ><br>
+            <label for="leagueId">leagueId</label>
+            <input type="number" id="leagueId" name="leagueId" ><br><br>
+            <ul>
+            <div id="mezua"></div>
+            <% if (errors){ %>
+                <% errors.forEach(function(error){ %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            <% } %>
+            </ul>
+            <input type="file" name="argazkia"/>
+            <input type="submit" id="botoia" class="form-submit" value="Create" >
+            
+            <a href="/main" class="btn btn-primary">Back</a>
+
+    </form>
+    
+    </div>
